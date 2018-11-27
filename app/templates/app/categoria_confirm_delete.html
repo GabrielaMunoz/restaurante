@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block maincontent %}
+
+    <form action="" method="post">{% csrf_token %}
+        <p>Eliminar "{{object.nombre}}"?</p>
+        <input type="submit" value="Confirmar" />
+        <a href="{% url 'categoria-list' %}" class="btn btn-default btn-sm active" role="button">Cancelar</a>
+        
+    </form>
+
+{% endblock maincontent %}

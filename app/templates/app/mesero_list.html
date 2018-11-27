@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Restaurante{% endblock title %}
+{% block content %}
+{% block section %}    
+<section class="content-header">
+    <h1>            
+      Meseros
+    </h1>
+    <ol class="breadcrumb">
+      <li class="active">Meseros</li>
+      <li><a href="{% url 'mesero-list' %}">Nuevo Mesero</a></li>
+      
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"><a href="{% url 'mesero-create' %}" class="btn btn-success">
+                Nuevo Mesero
+              </a></h3>
+              <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              </div><!-- /.box-tools -->
+            </div><!-- /.box-header -->
+            <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+               <tr>
+                  
+                  <th>ID</th>                   
+                  <th>Nombres</th> 
+                  <th>Apellidos</th>                              
+                  <th>Tipo de documento</th>
+                  <th>Numero de documento</th>                       
+                </tr>
+              </thead>
+              <tbody>
+              
+               {% for p in object_list.all %}          
+
+                  <tr> 
+                    <td>{{ forloop.counter}}</td>
+                    
+                    <td>{{ p.nombres }} </td> 
+                    <td>{{ p.apellidos }}</td>                              
+                    <td>{{ p.tipo_de_documento }}</td> 
+                    <td>{{ p.numero_de_documento }}</td> 
+                    <td class="text-right">
+                           
+                            <a href="{% url 'mesero-detail' p.id %} " class="btn btn-success"><span class="glyphicon glyphicon-eye-open"></span></a>
+                         
+
+                            <a href="{% url 'mesero-update' p.id %}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
+                            
+                            <a href="{% url 'mesero-delete' p.id %}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a> 
+                           
+                      </td>                      
+                        
+                    </tr>
+                {% endfor %}
+              </tbody>
+
+            </table>
+          </div><!-- /.box-body -->
+        </div><!-- /.box -->
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </section><!-- /.content -->
+ {% endblock section %}
+{% endblock content %}

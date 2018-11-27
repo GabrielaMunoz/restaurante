@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block section %}
+    <h2>
+        {{ object.titulo }}
+        {% if object.favorite %}
+            &#9733;
+        {% else %}
+            &#9734;
+        {% endif %}
+        {% if object.categoria_id %}
+            ( <a href="{% url 'categoria-detalle' object.categoria_id %}">{{ object.categoria }}</a> )
+        {% endif %}
+    </h2>
+    
+     
+    <hr>
+{% endblock section %}
+
+{% block maincontent %}
+<div class="col-md-4 well">
+        <div class="panel panel-primary">
+                <div class="panel-heading">
+                    </div>
+            <div class="panel-body">
+                    <div>
+                            
+                        <img src="{% static object.producto.url %}"
+                        style="width:300px;height:300px;"/>
+                           
+                        </div>
+                        <br/>
+                        <td class="text-right">
+                                                   
+                            <a href="{% url 'producto-update' object.id %}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
+                            
+                        </td>  
+            </div>
+        </div>
+    </div>
+
+{% endblock maincontent %} 

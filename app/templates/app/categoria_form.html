@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block maincontent %}
+<form enctype="multipart/form-data"method="post">
+    <div class="box-body">
+            <table class="table table-striped table table-hover ">
+                  <tbody> 
+                         <tr class="success">
+                            <td>{% csrf_token %}{{ form.as_p }} </td> 
+                         </tr>
+                  </tbody>
+                 </table>                                 
+    </div>
+     
+            <button class="btn btn-success" type="submit">
+                 <span class="glyphicon glyphicon-save"></span> Guardar
+            </button>
+           
+                 
+        <a class='btn' href="{% url 'categoria-list' %}">Cancelar</a>
+    </form>
+{% endblock maincontent%} 

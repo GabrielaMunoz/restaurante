@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Logged out" %}{% endblock %}
+
+{% block content %}
+
+<form>{% trans "Successfully logged out" %}.</form>
+<a href="{% url 'auth_login' %}">Regresar</a>
+
+{% endblock %}
+
+

@@ -1,0 +1,121 @@
+{% load adminlte_helpers %}
+<!-- Left side column. contains the sidebar -->
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        {% block user_panel %}
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="{% avatar_url size=90 %}" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>{% firstof request.user.get_full_name request.user.username %}</p>
+            </div>
+        </div>
+        {% endblock %}
+
+        {% block form %}{% endblock %}
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        {% block nav_links_ul %}
+        <ul class="sidebar-menu">
+            {% block nav_links_outer %}
+            <li class="header">{% block nav_heading %}MAIN NAVIGATION{% endblock %}</li>
+
+            {% block nav_links %}
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-group"></i> <span>Meseros</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{% url 'mesero-list' %}">
+                            <i class="fa fa-address-card-o"></i> <span>Meseros</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-group"></i> <span>Cliente</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{% url 'cliente-list' %}">
+                            <i class="fa fa-user-circle"></i> <span>Clientes</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-group"></i> <span>Categoria</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{% url 'categoria-list' %}">
+                            <i class="fa fa-dashboard"></i> <span>Categoria</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'categoria-create' %}">
+                            <i class="fa fa-edit" ></i> <span>Crear Categoria</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-group"></i> <span>Producto</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{% url 'producto-list' %}">
+                            <i class="fa fa-lemon-o"></i> <span>Producto</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'producto-create' %}">
+                            <i class="fa fa-edit" ></i> <span>Crear Producto</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-barcode"></i> <span>Factura</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{% url 'factura-list' %}">
+                                <i class="fa fa-barcode"></i> <span>Factura</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            
+                
+                
+            {% endblock nav_links %}
+            {% endblock nav_links_outer %}
+        </ul>
+        {% endblock nav_links_ul %}
+    </section>
+    <!-- /.sidebar -->
+</aside>

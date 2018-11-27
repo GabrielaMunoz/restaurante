@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block section %}
+    <h2>{{ object.nombre }}</h2>
+    <hr>
+{% endblock section %}
+
+{% block maincontent %}
+<div class="row well">
+        {% for p in object.producto_set.all %}
+            <div class="col-md-4 well">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ p.titulo }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <a href="{% url 'producto-detail' p.id %}">
+                            <img src="{% static p.producto.url %}" style="width:200px;height:200px;"/>
+                        </a>
+                        
+                    </div>       
+                    
+                </div>
+            </div>
+    {% endfor %}
+    </div>
+<div>
+    <table border="1px">
+        <tr>
+            
+        </tr> 
+    </table>
+</div>
+{% endblock maincontent %} 

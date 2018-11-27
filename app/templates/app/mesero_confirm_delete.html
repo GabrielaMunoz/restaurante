@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block maincontent %}
+
+    <form action="" method="post">{% csrf_token %}
+        <p>Eliminar "{{object.nombres}} {{object.apellidos}}"?</p>
+        <input type="submit" value="Confirmar" />
+        <a href="{% url 'mesero-list' %}" class="btn btn-default btn-sm active" role="button">Cancelar</a>
+        
+    </form>
+
+{% endblock maincontent %}
